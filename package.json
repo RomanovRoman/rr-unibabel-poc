@@ -1,6 +1,34 @@
 {
+  "engines": {
+    "node": ">=6.10",
+    "npm": ">=3.10"
+  },
+  "scripts": {
+    "lint:js": "eslint src tools",
+    "build": "babel-node tools/run build",
+    "start": "babel-node tools/run start"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "stage-0",
+      [
+        "babel-preset-env",
+        {
+          "targets": {
+            "ie9": true,
+            "uglify": true,
+            "modules": false
+          }
+        }
+      ]
+    ]
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.3.0",
     "webpack": "^3.4.0"
   }
